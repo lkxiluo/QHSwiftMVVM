@@ -5,11 +5,8 @@ use_frameworks!
 target 'RGSwiftProject' do
 
     pod 'Moya'
-    pod 'SQLite.swift'
     pod 'SnapKit'         # 自动布局封装
-    pod 'SwiftyJSON'      # json解析
     pod 'Toast-Swift'
-    pod 'MJRefresh'
     pod 'Kingfisher'
 
 end
