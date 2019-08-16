@@ -1,9 +1,9 @@
 //
-//  ___FILENAME___
-//  ___PROJECTNAME___
+//  BaseViewController.swift
+//  RGSwiftProject
 //
-//  Created by ___FULLUSERNAME___ on ___DATE___.
-//  Copyright (c) ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
+//  Created by lkun on 2019/8/16.
+//  Copyright (c) 2019 karl.luo. All rights reserved.
 //
 
 import Foundation
@@ -11,13 +11,13 @@ import UIKit
 import SnapKit
 
 /// 实现XXXX功能，写功能注释
-class ___VARIABLE_sceneName___ViewController: UIViewController {
-    //MARK: 方法重写
+class BaseViewController: UIViewController {
+    // MARK: 方法重写
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    //MARK: 添加视图和布局
+    // MARK: 添加视图和布局
     /// 添加视图
     private func setupView() {
     }
@@ -26,12 +26,12 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
     private func layout() {
     }
     
-    //MARK: 属性列表
-    //MARK: --存储属性列表
+    // MARK: 属性列表
+    // MARK: --存储属性列表
     /// 属性注释
     private var someThing: String = ""
     
-    //MARK: --计算属性列表
+    // MARK: --计算属性列表
     var _name: String = ""
     /// 名字
     var name: String {
@@ -56,7 +56,7 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
         }
     }
     
-    //MARK: --控件属性列表
+    // MARK: --控件属性列表
     /// 按钮注释
     lazy private var button: UIButton = {
         let button = UIButton(type: .custom)
@@ -65,13 +65,13 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
     }()
 }
 
-//MARK: 协议扩展
-extension ___VARIABLE_sceneName___ViewController: UINavigationControllerDelegate {
+// MARK: 协议扩展
+extension BaseViewController: UINavigationControllerDelegate {
     
 }
 
-//MARK: 事件响应
-fileprivate extension ___VARIABLE_sceneName___ViewController {
+// MARK: 事件响应
+fileprivate extension BaseViewController {
     // 添加响应事件
     /// XXX 点击事件
     @objc private func click(sender: UIButton) {
@@ -79,8 +79,8 @@ fileprivate extension ___VARIABLE_sceneName___ViewController {
     }
 }
 
-//MARK: 私有方法
-fileprivate extension ___VARIABLE_sceneName___ViewController {
+// MARK: 私有方法
+fileprivate extension BaseViewController {
     // 添加方法
     /// 给方法添加注释
     private func methodA() {
@@ -88,8 +88,8 @@ fileprivate extension ___VARIABLE_sceneName___ViewController {
     }
 }
 
-//MARK: 公有方法
-extension ___VARIABLE_sceneName___ViewController {
+// MARK: 公有方法
+extension BaseViewController {
     // 添加方法
     /// 给方法添加注释
     func methodB() {

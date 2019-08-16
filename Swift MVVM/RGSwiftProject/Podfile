@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'RGSwiftProject' do
 
-    pod 'Moya'
+    pod 'Alamofire'
     pod 'SnapKit'         # 自动布局封装
     pod 'Toast-Swift'
     pod 'Kingfisher'

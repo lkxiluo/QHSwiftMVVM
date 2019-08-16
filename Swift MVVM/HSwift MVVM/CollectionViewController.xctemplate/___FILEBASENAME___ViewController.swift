@@ -12,12 +12,12 @@ import SnapKit
 
 /// 实现XXXX功能，写功能注释
 class ___VARIABLE_sceneName___ViewController: UIViewController {
-    //MARK: 方法重写
+    // MARK: 方法重写
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    //MARK: 添加视图和布局
+    // MARK: 添加视图和布局
     /// 添加视图
     private func setupView() {
         view.addSubview(theCollectionView)
@@ -30,12 +30,12 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
         }
     }
     
-    //MARK: 属性列表
-    //MARK: --存储属性列表
+    // MARK: 属性列表
+    // MARK: --存储属性列表
     /// 属性注释
     private var someThing: String = ""
     
-    //MARK: --计算/观察属性列表
+    // MARK: --计算/观察属性列表
     var _name: String = ""
     /// 名字
     var name: String {
@@ -59,7 +59,7 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
         }
     }
     
-    //MARK: --控件属性列表
+    // MARK: --控件属性列表
     /// 按钮注释
     lazy private var button: UIButton = {
         let button = UIButton(type: .custom)
@@ -87,7 +87,7 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
     }()
 }
 
-//MARK: 协议扩展
+// MARK: 协议扩展
 extension ___VARIABLE_sceneName___ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -100,7 +100,7 @@ extension ___VARIABLE_sceneName___ViewController: UICollectionViewDelegate, UICo
     
 }
 
-//MARK: 事件响应
+// MARK: 事件响应
 fileprivate extension ___VARIABLE_sceneName___ViewController {
     // 添加响应事件
     /// XXX 点击事件
@@ -109,7 +109,7 @@ fileprivate extension ___VARIABLE_sceneName___ViewController {
     }
 }
 
-//MARK: 私有方法
+// MARK: 私有方法
 fileprivate extension ___VARIABLE_sceneName___ViewController {
     // 添加方法
     /// 给方法添加注释
@@ -118,7 +118,7 @@ fileprivate extension ___VARIABLE_sceneName___ViewController {
     }
 }
 
-//MARK: 公有方法
+// MARK: 公有方法
 extension ___VARIABLE_sceneName___ViewController {
     // 添加方法
     /// 给方法添加注释

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		A4071EA322F40F7C005B68BE /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EA222F40F7C005B68BE /* HomeModel.swift */; };
 		A4071EAB22F910C1005B68BE /* DebugManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAA22F910C1005B68BE /* DebugManager.swift */; };
 		A4071EAD22F91D05005B68BE /* Hummer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAC22F91D05005B68BE /* Hummer.swift */; };
+		A410AF88230638A100F7C443 /* RequestConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */; };
+		A410AFA92306905700F7C443 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFA82306905700F7C443 /* BaseViewController.swift */; };
 		A45B681022F9734100018A73 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B680F22F9734100018A73 /* NetworkingError.swift */; };
 		A45D3F7822B9C7CC00415E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */; };
 		A45D3F7A22B9C7CC00415E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7922B9C7CC00415E0C /* ViewController.swift */; };
@@ -51,6 +53,8 @@
 		A4071EA222F40F7C005B68BE /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		A4071EAA22F910C1005B68BE /* DebugManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugManager.swift; sourceTree = "<group>"; };
 		A4071EAC22F91D05005B68BE /* Hummer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hummer.swift; sourceTree = "<group>"; };
+		A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfigProtocol.swift; sourceTree = "<group>"; };
+		A410AFA82306905700F7C443 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A45B680F22F9734100018A73 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		A45D3F7422B9C7CC00415E0C /* RGSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A410AFA723063C7A00F7C443 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A410AFA82306905700F7C443 /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		A45D3F6B22B9C7CC00415E0C = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +198,7 @@
 			children = (
 				A4071EAC22F91D05005B68BE /* Hummer.swift */,
 				A45B680F22F9734100018A73 /* NetworkingError.swift */,
+				A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -193,6 +206,7 @@
 		A4B60B7622D814C400A6BB77 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A410AFA723063C7A00F7C443 /* ViewController */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -508,26 +522,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RGSwiftProject/Pods-RGSwiftProject-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RGSwiftProject/Pods-RGSwiftProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RGSwiftProject/Pods-RGSwiftProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -541,9 +540,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A410AFA92306905700F7C443 /* BaseViewController.swift in Sources */,
 				A4B60B7322D7474E00A6BB77 /* ColorStyle.swift in Sources */,
 				A45D3F7A22B9C7CC00415E0C /* ViewController.swift in Sources */,
 				A45B681022F9734100018A73 /* NetworkingError.swift in Sources */,
+				A410AF88230638A100F7C443 /* RequestConfigProtocol.swift in Sources */,
 				A4B60B7522D7476500A6BB77 /* SizeStyle.swift in Sources */,
 				A4B60BB722E1986B00A6BB77 /* UIColor+Covert.swift in Sources */,
 				A4071EA322F40F7C005B68BE /* HomeModel.swift in Sources */,

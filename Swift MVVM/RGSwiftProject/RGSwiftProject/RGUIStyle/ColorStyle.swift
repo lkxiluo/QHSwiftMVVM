@@ -23,19 +23,19 @@ struct ColorStyle {
         return .color(hexColor: 0xCCCCCC)
     }
     
-    static func assistFE9034() -> UIColor {
+    static func colorFE9034() -> UIColor {
         return .color(hexColor: 0xFE9034)
     }
     
-    static func assistA64314() -> UIColor {
+    static func colorA64314() -> UIColor {
         return .color(hexColor: 0xA64314)
     }
     
-    static func featuresFA484A() -> UIColor {
+    static func colorFA484A() -> UIColor {
         return .color(hexColor: 0xFA484A)
     }
     
-    static func features0FD188() -> UIColor {
+    static func color0FD188() -> UIColor {
         return .color(hexColor: 0x0FD188)
     }
     
