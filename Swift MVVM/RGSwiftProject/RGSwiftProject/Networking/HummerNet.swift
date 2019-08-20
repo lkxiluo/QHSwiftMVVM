@@ -9,14 +9,14 @@
 import Foundation
 import Alamofire
 
-class Hummer: URLRequestConvertible, RequestConfigProtocol {
+class HummerNet: URLRequestConvertible, RequestConfigProtocol {
+    static let `default` = HummerNet()
+    private var requestTasks = [String: HummerNet]()
     var requestArray: [DataRequest] = [DataRequest]()
     func request() -> Void {
-        let request = Alamofire.request(self)
-        request.responseJSON { (responseJson) in
-            
-        }
-        
+        let sessionManager = Alamofire.SessionManager.default
+        sessionManager.request(self)
+        Alamofire.request(self)
     }
     
     // MARK: -URLRequestConvertible
@@ -27,9 +27,19 @@ class Hummer: URLRequestConvertible, RequestConfigProtocol {
         urlRequest.httpMethod = httpMethod().rawValue
         
         let headers = SessionManager.defaultHTTPHeaders
-        urlRequest.allHTTPHeaderFields = httpHeaders()
+        urlRequest.timeoutInterval = timeoutInterval()
+        urlRequest.allHTTPHeaderFields = mergeDictionary(to: headers, from: httpHeaders())
         urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters())
         
         return urlRequest
+    }
+    
+    /// 合并两个数组
+    func mergeDictionary(to: [String: String], from: [String: String]) -> [String: String] {
+        var resultDic = to
+        for dic in from {
+            resultDic[dic.key] = from[dic.key]
+        }
+        return resultDic
     }
 }

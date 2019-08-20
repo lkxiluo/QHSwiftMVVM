@@ -10,9 +10,10 @@
 		A4071EA122F40B61005B68BE /* NotificationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EA022F40B61005B68BE /* NotificationKey.swift */; };
 		A4071EA322F40F7C005B68BE /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EA222F40F7C005B68BE /* HomeModel.swift */; };
 		A4071EAB22F910C1005B68BE /* DebugManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAA22F910C1005B68BE /* DebugManager.swift */; };
-		A4071EAD22F91D05005B68BE /* Hummer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAC22F91D05005B68BE /* Hummer.swift */; };
+		A4071EAD22F91D05005B68BE /* HummerNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAC22F91D05005B68BE /* HummerNet.swift */; };
 		A410AF88230638A100F7C443 /* RequestConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */; };
 		A410AFA92306905700F7C443 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFA82306905700F7C443 /* BaseViewController.swift */; };
+		A410AFAE230A52F700F7C443 /* BaseNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */; };
 		A45B681022F9734100018A73 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B680F22F9734100018A73 /* NetworkingError.swift */; };
 		A45D3F7822B9C7CC00415E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */; };
 		A45D3F7A22B9C7CC00415E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7922B9C7CC00415E0C /* ViewController.swift */; };
@@ -52,9 +53,10 @@
 		A4071EA022F40B61005B68BE /* NotificationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationKey.swift; sourceTree = "<group>"; };
 		A4071EA222F40F7C005B68BE /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		A4071EAA22F910C1005B68BE /* DebugManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugManager.swift; sourceTree = "<group>"; };
-		A4071EAC22F91D05005B68BE /* Hummer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hummer.swift; sourceTree = "<group>"; };
+		A4071EAC22F91D05005B68BE /* HummerNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HummerNet.swift; sourceTree = "<group>"; };
 		A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfigProtocol.swift; sourceTree = "<group>"; };
 		A410AFA82306905700F7C443 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetWorking.swift; sourceTree = "<group>"; };
 		A45B680F22F9734100018A73 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		A45D3F7422B9C7CC00415E0C /* RGSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 				A410AFA82306905700F7C443 /* BaseViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A410AFAC230A52CA00F7C443 /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */,
+			);
+			path = NetWorking;
 			sourceTree = "<group>";
 		};
 		A45D3F6B22B9C7CC00415E0C = {
@@ -196,7 +206,7 @@
 		A4B60B5522D7446300A6BB77 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A4071EAC22F91D05005B68BE /* Hummer.swift */,
+				A4071EAC22F91D05005B68BE /* HummerNet.swift */,
 				A45B680F22F9734100018A73 /* NetworkingError.swift */,
 				A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */,
 			);
@@ -206,6 +216,7 @@
 		A4B60B7622D814C400A6BB77 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A410AFAC230A52CA00F7C443 /* NetWorking */,
 				A410AFA723063C7A00F7C443 /* ViewController */,
 			);
 			path = Base;
@@ -546,11 +557,12 @@
 				A45B681022F9734100018A73 /* NetworkingError.swift in Sources */,
 				A410AF88230638A100F7C443 /* RequestConfigProtocol.swift in Sources */,
 				A4B60B7522D7476500A6BB77 /* SizeStyle.swift in Sources */,
+				A410AFAE230A52F700F7C443 /* BaseNetWorking.swift in Sources */,
 				A4B60BB722E1986B00A6BB77 /* UIColor+Covert.swift in Sources */,
 				A4071EA322F40F7C005B68BE /* HomeModel.swift in Sources */,
 				A4071EAB22F910C1005B68BE /* DebugManager.swift in Sources */,
 				A4071EA122F40B61005B68BE /* NotificationKey.swift in Sources */,
-				A4071EAD22F91D05005B68BE /* Hummer.swift in Sources */,
+				A4071EAD22F91D05005B68BE /* HummerNet.swift in Sources */,
 				A45D3F7822B9C7CC00415E0C /* AppDelegate.swift in Sources */,
 				A4B60BBB22E1CFE800A6BB77 /* FontStyle.swift in Sources */,
 			);

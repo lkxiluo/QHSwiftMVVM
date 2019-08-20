@@ -27,6 +27,8 @@ protocol RequestConfigProtocol {
     func isEncryption() -> Bool
     /// 是否需要先读取缓存，请求回来后再刷新最新数据
     func isCacheResponse() -> Bool
+    /// 请求超时时间
+    func timeoutInterval() -> TimeInterval
 }
 
 extension RequestConfigProtocol {
@@ -62,5 +64,9 @@ extension RequestConfigProtocol {
     
     func isCacheResponse() -> Bool {
         return false
+    }
+    
+    func timeoutInterval() -> TimeInterval {
+        return 15.0
     }
 }
