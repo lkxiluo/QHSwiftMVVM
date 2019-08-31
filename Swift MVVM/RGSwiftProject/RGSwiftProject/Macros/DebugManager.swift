@@ -16,7 +16,7 @@ struct DebugManager {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss.SSS"
         let dateString = dateFormatter.string(from: Date())
-        print(" ------->fileName：\(fileName)\n ------->funcName：\(funcName)\n ------->line：\(lineNum)\n ------->time：\(dateString)\n ------->content：\n\(message)")
+        print("\(dateString), \(fileName), [\(lineNum)], \(funcName):\(message)")
         #endif
     }
 }

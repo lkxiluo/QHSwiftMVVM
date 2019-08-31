@@ -14,6 +14,9 @@
 		A410AF88230638A100F7C443 /* RequestConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */; };
 		A410AFA92306905700F7C443 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFA82306905700F7C443 /* BaseViewController.swift */; };
 		A410AFAE230A52F700F7C443 /* BaseNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */; };
+		A410AFB0230CED4E00F7C443 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFAF230CED4E00F7C443 /* CacheManager.swift */; };
+		A410AFB72317A7C400F7C443 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFB62317A7C400F7C443 /* ResponseModel.swift */; };
+		A410AFBB2318C85400F7C443 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFBA2318C85400F7C443 /* Response.swift */; };
 		A45B681022F9734100018A73 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B680F22F9734100018A73 /* NetworkingError.swift */; };
 		A45D3F7822B9C7CC00415E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */; };
 		A45D3F7A22B9C7CC00415E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7922B9C7CC00415E0C /* ViewController.swift */; };
@@ -57,6 +60,9 @@
 		A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfigProtocol.swift; sourceTree = "<group>"; };
 		A410AFA82306905700F7C443 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetWorking.swift; sourceTree = "<group>"; };
+		A410AFAF230CED4E00F7C443 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		A410AFB62317A7C400F7C443 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		A410AFBA2318C85400F7C443 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		A45B680F22F9734100018A73 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		A45D3F7422B9C7CC00415E0C /* RGSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +129,13 @@
 			path = NetWorking;
 			sourceTree = "<group>";
 		};
+		A410AFBC2318C97300F7C443 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		A45D3F6B22B9C7CC00415E0C = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +167,7 @@
 				A4B60B9822D81E8A00A6BB77 /* Extension */,
 				A4B60B7622D814C400A6BB77 /* Base */,
 				A4B60B5522D7446300A6BB77 /* Networking */,
+				A410AFBC2318C97300F7C443 /* Utility */,
 				A4B60B5122D7439100A6BB77 /* RGUIKit */,
 				A4B60B9A22D81F7E00A6BB77 /* Resource */,
 				A4B60B5222D743E200A6BB77 /* AppDelegate */,
@@ -207,8 +221,11 @@
 			isa = PBXGroup;
 			children = (
 				A4071EAC22F91D05005B68BE /* HummerNet.swift */,
+				A410AFAF230CED4E00F7C443 /* CacheManager.swift */,
 				A45B680F22F9734100018A73 /* NetworkingError.swift */,
 				A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */,
+				A410AFB62317A7C400F7C443 /* ResponseModel.swift */,
+				A410AFBA2318C85400F7C443 /* Response.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -552,7 +569,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A410AFA92306905700F7C443 /* BaseViewController.swift in Sources */,
+				A410AFB0230CED4E00F7C443 /* CacheManager.swift in Sources */,
 				A4B60B7322D7474E00A6BB77 /* ColorStyle.swift in Sources */,
+				A410AFBB2318C85400F7C443 /* Response.swift in Sources */,
 				A45D3F7A22B9C7CC00415E0C /* ViewController.swift in Sources */,
 				A45B681022F9734100018A73 /* NetworkingError.swift in Sources */,
 				A410AF88230638A100F7C443 /* RequestConfigProtocol.swift in Sources */,
@@ -563,6 +582,7 @@
 				A4071EAB22F910C1005B68BE /* DebugManager.swift in Sources */,
 				A4071EA122F40B61005B68BE /* NotificationKey.swift in Sources */,
 				A4071EAD22F91D05005B68BE /* HummerNet.swift in Sources */,
+				A410AFB72317A7C400F7C443 /* ResponseModel.swift in Sources */,
 				A45D3F7822B9C7CC00415E0C /* AppDelegate.swift in Sources */,
 				A4B60BBB22E1CFE800A6BB77 /* FontStyle.swift in Sources */,
 			);

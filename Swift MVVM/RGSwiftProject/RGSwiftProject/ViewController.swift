@@ -12,6 +12,7 @@ import Alamofire
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        DebugManager.log("我只是个测试")
     }
 }
 

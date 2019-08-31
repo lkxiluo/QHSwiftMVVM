@@ -7,7 +7,38 @@
 //
 
 import Foundation
+import Alamofire
 
-class BaseNetWorking: Hummer {
+enum RequestPath: String {
+    case home = "get_home_changle"
+    case category = "cate_list"
+}
+
+class BaseNetWorking: HummerNet {
+    func baseURLString() -> String {
+        return "http:xxxxxx"
+    }
     
+    func httpMethod() -> HTTPMethod {
+        switch self {
+        default:
+            return .post
+        }
+    }
+    
+    func path() -> String {
+        return ""
+    }
+    
+    func commomParameters() -> [String: Any] {
+        return [:]
+    }
+    
+    func isEncryption() -> Bool {
+        return true
+    }
+    
+    func isCacheResponse() -> Bool {
+        return false
+    }
 }
