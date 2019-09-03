@@ -10,13 +10,17 @@
 		A4071EA122F40B61005B68BE /* NotificationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EA022F40B61005B68BE /* NotificationKey.swift */; };
 		A4071EA322F40F7C005B68BE /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EA222F40F7C005B68BE /* HomeModel.swift */; };
 		A4071EAB22F910C1005B68BE /* DebugManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAA22F910C1005B68BE /* DebugManager.swift */; };
-		A4071EAD22F91D05005B68BE /* HummerNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAC22F91D05005B68BE /* HummerNet.swift */; };
+		A4071EAD22F91D05005B68BE /* HummerNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4071EAC22F91D05005B68BE /* HummerNetWorking.swift */; };
 		A410AF88230638A100F7C443 /* RequestConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */; };
 		A410AFA92306905700F7C443 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFA82306905700F7C443 /* BaseViewController.swift */; };
 		A410AFAE230A52F700F7C443 /* BaseNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */; };
 		A410AFB0230CED4E00F7C443 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFAF230CED4E00F7C443 /* CacheManager.swift */; };
 		A410AFB72317A7C400F7C443 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFB62317A7C400F7C443 /* ResponseModel.swift */; };
 		A410AFBB2318C85400F7C443 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFBA2318C85400F7C443 /* Response.swift */; };
+		A410AFBE231CCA7200F7C443 /* RequestPathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFBD231CCA7200F7C443 /* RequestPathType.swift */; };
+		A410AFC0231E6DD500F7C443 /* RequestTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFBF231E6DD500F7C443 /* RequestTaskManager.swift */; };
+		A410AFC2231E6E8C00F7C443 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFC1231E6E8C00F7C443 /* RequestManager.swift */; };
+		A410AFC4231E74D900F7C443 /* HummerURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410AFC3231E74D900F7C443 /* HummerURLRequest.swift */; };
 		A45B681022F9734100018A73 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B680F22F9734100018A73 /* NetworkingError.swift */; };
 		A45D3F7822B9C7CC00415E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */; };
 		A45D3F7A22B9C7CC00415E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D3F7922B9C7CC00415E0C /* ViewController.swift */; };
@@ -56,13 +60,17 @@
 		A4071EA022F40B61005B68BE /* NotificationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationKey.swift; sourceTree = "<group>"; };
 		A4071EA222F40F7C005B68BE /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		A4071EAA22F910C1005B68BE /* DebugManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugManager.swift; sourceTree = "<group>"; };
-		A4071EAC22F91D05005B68BE /* HummerNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HummerNet.swift; sourceTree = "<group>"; };
+		A4071EAC22F91D05005B68BE /* HummerNetWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HummerNetWorking.swift; sourceTree = "<group>"; };
 		A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfigProtocol.swift; sourceTree = "<group>"; };
 		A410AFA82306905700F7C443 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetWorking.swift; sourceTree = "<group>"; };
 		A410AFAF230CED4E00F7C443 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		A410AFB62317A7C400F7C443 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		A410AFBA2318C85400F7C443 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		A410AFBD231CCA7200F7C443 /* RequestPathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPathType.swift; sourceTree = "<group>"; };
+		A410AFBF231E6DD500F7C443 /* RequestTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTaskManager.swift; sourceTree = "<group>"; };
+		A410AFC1231E6E8C00F7C443 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		A410AFC3231E74D900F7C443 /* HummerURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HummerURLRequest.swift; sourceTree = "<group>"; };
 		A45B680F22F9734100018A73 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		A45D3F7422B9C7CC00415E0C /* RGSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45D3F7722B9C7CC00415E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				A410AFAD230A52F700F7C443 /* BaseNetWorking.swift */,
+				A410AFBD231CCA7200F7C443 /* RequestPathType.swift */,
 			);
 			path = NetWorking;
 			sourceTree = "<group>";
@@ -220,12 +229,15 @@
 		A4B60B5522D7446300A6BB77 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A4071EAC22F91D05005B68BE /* HummerNet.swift */,
-				A410AFAF230CED4E00F7C443 /* CacheManager.swift */,
-				A45B680F22F9734100018A73 /* NetworkingError.swift */,
-				A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */,
-				A410AFB62317A7C400F7C443 /* ResponseModel.swift */,
+				A4071EAC22F91D05005B68BE /* HummerNetWorking.swift */,
+				A410AFC3231E74D900F7C443 /* HummerURLRequest.swift */,
+				A410AFC1231E6E8C00F7C443 /* RequestManager.swift */,
+				A410AFBF231E6DD500F7C443 /* RequestTaskManager.swift */,
 				A410AFBA2318C85400F7C443 /* Response.swift */,
+				A410AFB62317A7C400F7C443 /* ResponseModel.swift */,
+				A410AFAF230CED4E00F7C443 /* CacheManager.swift */,
+				A410AF87230638A100F7C443 /* RequestConfigProtocol.swift */,
+				A45B680F22F9734100018A73 /* NetworkingError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -580,11 +592,15 @@
 				A4B60BB722E1986B00A6BB77 /* UIColor+Covert.swift in Sources */,
 				A4071EA322F40F7C005B68BE /* HomeModel.swift in Sources */,
 				A4071EAB22F910C1005B68BE /* DebugManager.swift in Sources */,
+				A410AFBE231CCA7200F7C443 /* RequestPathType.swift in Sources */,
 				A4071EA122F40B61005B68BE /* NotificationKey.swift in Sources */,
-				A4071EAD22F91D05005B68BE /* HummerNet.swift in Sources */,
+				A4071EAD22F91D05005B68BE /* HummerNetWorking.swift in Sources */,
+				A410AFC4231E74D900F7C443 /* HummerURLRequest.swift in Sources */,
+				A410AFC2231E6E8C00F7C443 /* RequestManager.swift in Sources */,
 				A410AFB72317A7C400F7C443 /* ResponseModel.swift in Sources */,
 				A45D3F7822B9C7CC00415E0C /* AppDelegate.swift in Sources */,
 				A4B60BBB22E1CFE800A6BB77 /* FontStyle.swift in Sources */,
+				A410AFC0231E6DD500F7C443 /* RequestTaskManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

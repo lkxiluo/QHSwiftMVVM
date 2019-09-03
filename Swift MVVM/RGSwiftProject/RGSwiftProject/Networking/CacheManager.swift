@@ -9,33 +9,35 @@
 import Foundation
 import Cache
 
-/// 将参数、url 进行 MD5 加密作为缓存的键，即请求的可唯一标识加密成缓存关键字
-func cacheKey(url: String, parameters: Dictionary<String, Any>?, commomParameters:Dictionary<String, Any>?) -> String {
-    var resultKey: String = ""
-    if let params = parameters?.filter({ (key, _) -> Bool in
-        return commomParameters?.contains(where: { (key1, _) -> Bool in return key != key1 }) ?? false }) {
-        let str = "\(url)" + sort(parameters: params)
-        resultKey = MD5(str)
-    } else {
-        resultKey = MD5(url)
+struct CacheKey {
+    /// 将参数、url 进行 MD5 加密作为缓存的键，即请求的可唯一标识加密成缓存关键字
+    static func cacheKey(url: String, parameters: Dictionary<String, Any>?, commomParameters:Dictionary<String, Any>?) -> String {
+        var resultKey: String = ""
+        if let params = parameters?.filter({ (key, _) -> Bool in
+            return commomParameters?.contains(where: { (key1, _) -> Bool in return key != key1 }) ?? false }) {
+            let str = "\(url)" + sort(parameters: params)
+            resultKey = MD5(str)
+        } else {
+            resultKey = MD5(url)
+        }
+        return resultKey
     }
-    return resultKey
-}
-
-/// 将参数降序转成字符串
-func sort(parameters: Dictionary<String, Any>?) -> String {
-    var result: String = ""
-    if let params = parameters {
-        let sortKeyArray = params.keys.sorted{ $0 < $1}
-        sortKeyArray.forEach { (key) in
-            if let value = params[key] {
-               result = result.appending("\(key)=\(value)")
-            } else {
-                result = result.appending("\(key)=")
+    
+    /// 将参数降序转成字符串
+    static func sort(parameters: Dictionary<String, Any>?) -> String {
+        var result: String = ""
+        if let params = parameters {
+            let sortKeyArray = params.keys.sorted{ $0 < $1}
+            sortKeyArray.forEach { (key) in
+                if let value = params[key] {
+                    result = result.appending("\(key)=\(value)")
+                } else {
+                    result = result.appending("\(key)=")
+                }
             }
         }
+        return result
     }
-    return result
 }
 
 // MARK: 缓存过期参数
@@ -68,7 +70,7 @@ enum CacheExpiry {
 // MARK: 缓存的对象模型
 struct CacheModel: Codable {
     var data: Data?
-    var response: Dictionary<String, Data>?
+//    var response: Dictionary<String, Data>?
     init() { }
 }
 

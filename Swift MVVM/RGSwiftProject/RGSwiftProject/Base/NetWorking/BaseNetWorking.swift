@@ -9,25 +9,21 @@
 import Foundation
 import Alamofire
 
-enum RequestPath: String {
-    case home = "get_home_changle"
-    case category = "cate_list"
-}
-
-class BaseNetWorking: HummerNet {
+class RosegalURLRequest: HummerURLRequest {
+    private var pathType: RequestPathType = .default
     func baseURLString() -> String {
         return "http:xxxxxx"
     }
     
     func httpMethod() -> HTTPMethod {
-        switch self {
+        switch pathType {
         default:
             return .post
         }
     }
     
     func path() -> String {
-        return ""
+        return pathType.rawValue
     }
     
     func commomParameters() -> [String: Any] {
@@ -40,5 +36,10 @@ class BaseNetWorking: HummerNet {
     
     func isCacheResponse() -> Bool {
         return false
+    }
+    
+    func pathType(type: RequestPathType) -> RosegalURLRequest {
+        pathType = type
+        return self
     }
 }

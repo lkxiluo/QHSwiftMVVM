@@ -12,7 +12,7 @@ import Alamofire
 /// 网络请求的配置协议，比如公共参数，请求头，基本 URL 等等
 protocol RequestConfigProtocol {
     /// 请求参数
-    var parameters: Dictionary<String, Any> {get set}
+//    var parameters: Dictionary<String, Any> {get set}
     /// 请求基础 URL
     func baseURLString() -> String
     /// http 请求头

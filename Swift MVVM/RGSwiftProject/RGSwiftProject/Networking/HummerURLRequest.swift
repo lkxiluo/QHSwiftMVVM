@@ -1,37 +1,19 @@
 //
-//  Hummer.swift
+//  HummerURLRequest.swift
 //  RGSwiftProject
 //
-//  Created by QianHan on 2019/8/6.
+//  Created by lkun on 2019/9/3.
 //  Copyright © 2019 karl.luo. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-protocol NetWorkingResponseDelegate {
-    func requestSuccess(result: ResponseModel<Any>) -> Void
-    func requestFailed(result: ResponseModel<Any>) -> Void
-}
-
-class HummerNet: URLRequestConvertible, RequestConfigProtocol {
+class HummerURLRequest: URLRequestConvertible, RequestConfigProtocol {
     var parameters: Dictionary<String, Any> = [:]
-    
-    static let `default` = HummerNet()
-    @discardableResult
-    func request(params: Dictionary<String, Any>) -> HummerNet {
-        parameters = params
-        let sessionManager = Alamofire.SessionManager.default
-        sessionManager.request(self)
-        Alamofire.request(self)
-        return self
-    }
-    
     // MARK: -URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
-        let url = try baseURLString().asURL()
-        
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path()))
+        var urlRequest = requestURL()
         urlRequest.httpMethod = httpMethod().rawValue
         
         let params = mergeDictionary(to: parameters, from: commomParameters())
@@ -45,11 +27,26 @@ class HummerNet: URLRequestConvertible, RequestConfigProtocol {
     
     // MARK: -私有方法
     /// 合并两个数组
-    func mergeDictionary(to destinationDic: Dictionary<String, Any>, from sourceDic: Dictionary<String, Any>) -> Dictionary<String, Any> {
+    private func mergeDictionary(to destinationDic: Dictionary<String, Any>, from sourceDic: Dictionary<String, Any>) -> Dictionary<String, Any> {
         var resultDic = destinationDic
         sourceDic.forEach { (key, value) in
             resultDic[key] = value
         }
         return resultDic
     }
+    
+    func cacheKey() -> String {
+        let urlString = requestURL().url?.absoluteString ?? ""
+        let key = CacheKey.cacheKey(url: urlString, parameters: parameters, commomParameters: commomParameters())
+        return key
+    }
+    
+    func requestURL() -> URLRequest {
+        guard let url = try? baseURLString().asURL() else {
+            return URLRequest(url: URL(string: "")!)
+        }
+        let urlRequest = URLRequest(url: url.appendingPathComponent(path()))
+        return urlRequest;
+    }
 }
+

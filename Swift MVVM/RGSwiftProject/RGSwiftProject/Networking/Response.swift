@@ -149,39 +149,39 @@ public class StringResponse: Response {
 }
 
 // MARK: 响应返回 Data 结构数据
-//public class DataResponse: Response {
-    /// 响应 Data 格式的数据
-//    func responseJson(completion: @escaping (ResponseModel<Data>) -> Void) {
-//        dataRequest.responseData { (data) in
-//            self.response(responseData: data, completion: completion)
-//        }
-//    }
+public class HDataResponse: Response {
+    // 响应 Data 格式的数据
+    func responseJson(completion: @escaping (ResponseModel<Data>) -> Void) {
+        dataRequest.responseData { (data) in
+            self.response(responseData: data, completion: completion)
+        }
+    }
     
-    /// 从缓存中读取 Data 数据
-//    @discardableResult
-//    func responseDataCache(completion: @escaping (Data) -> Void) -> DataResponse {
-//        if let data = CacheManager.default.cacheObject(for: cacheKey)?.data,
-//            let string = String(bytes: data, encoding: .utf8) {
-//            DebugManager.log("================ 😆😆 这是缓存数据 =================")
-//            DebugManager.log(dataRequest.request?.url?.absoluteString ?? "这个链接是空")
-//            DebugManager.log(string)
-//            completion(data)
-//        } else {
-//            DebugManager.log(dataRequest.request?.url?.absoluteString ?? "这个链接是空" + "读取缓存失败")
-//        }
-//        return self
-//    }
+    // 从缓存中读取 Data 数据
+    @discardableResult
+    func responseDataCache(completion: @escaping (Data) -> Void) -> HDataResponse {
+        if let data = CacheManager.default.cacheObject(for: cacheKey)?.data,
+            let string = String(bytes: data, encoding: .utf8) {
+            DebugManager.log("================ 😆😆 这是缓存数据 =================")
+            DebugManager.log(dataRequest.request?.url?.absoluteString ?? "这个链接是空")
+            DebugManager.log(string)
+            completion(data)
+        } else {
+            DebugManager.log(dataRequest.request?.url?.absoluteString ?? "这个链接是空" + "读取缓存失败")
+        }
+        return self
+    }
     
-    /// 如果支持缓存的话，先响应缓存数据，请求结束后再响应网络返回数据，相当于 XXX.responseJsonCache{}.responseJson{}
-//    func responseCacheThenData(completion: @escaping (ResponseModel<Data>) -> Void) {
-//        if isCache {
-//            responseDataCache { (data) in
-//                let model = ResponseModel(isCache: true, result: Alamofire.Result.success(data), response: nil)
-//                completion(model)
-//            }
-//        }
-//        dataRequest.responseData { (data) in
-//            self.responseCache(responseData: data, completion: completion)
-//        }
-//    }
-//}
+    // 如果支持缓存的话，先响应缓存数据，请求结束后再响应网络返回数据，相当于 XXX.responseJsonCache{}.responseJson{}
+    func responseCacheThenData(completion: @escaping (ResponseModel<Data>) -> Void) {
+        if isCache {
+            responseDataCache { (data) in
+                let model = ResponseModel(isCache: true, result: Alamofire.Result.success(data), response: nil)
+                completion(model)
+            }
+        }
+        dataRequest.responseData { (data) in
+            self.responseCache(responseData: data, completion: completion)
+        }
+    }
+}
