@@ -13,10 +13,11 @@ import SwiftyJSON
 struct ___VARIABLE_modelName___Model {
     /// 某些属性，一般定义为不可变属性
     let someThing: String?
-    
-    /// 初始化，手动解析
-    init(json: JSON) {
-        someThing = json["some_thing"].stringValue
+    let bornIn: String?
+    /// 键值映射，当数据模型中有类似于 bornIn 与字段 ”born_in“ 不一致时使用，具体看 CodingKey 的使用
+    enum CodingKeys: String, CodingKey {
+        case someThing
+        case bornIn = "born_in"
     }
 }
 

@@ -12,24 +12,6 @@ import SnapKit
 
 /// 实现XXXX功能，写功能注释
 class ___VARIABLE_sceneName___ViewController: UIViewController {
-    // MARK: 方法重写
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    // MARK: 添加视图和布局
-    /// 添加视图
-    private func setupView() {
-        view.addSubview(theCollectionView)
-    }
-    
-    /// 添加布局
-    private func layout() {
-        theCollectionView.snp_makeConstraints { (make) in
-            make.edges.equalTo(self.view)
-        }
-    }
-    
     // MARK: 属性列表
     // MARK: --存储属性列表
     /// 属性注释
@@ -85,6 +67,42 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
         
         return collectionView
     }()
+    
+    // MARK: 方法重写
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // MARK: 添加视图和布局
+    /// 添加视图
+    private func setupView() {
+        view.addSubview(theCollectionView)
+    }
+    
+    /// 添加布局
+    private func layout() {
+        theCollectionView.snp_makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
+    }
+    
+    // MARK: 事件响应
+    /// XXX 点击事件
+    @objc private func click(sender: UIButton) {
+        
+    }
+    
+    // MARK: 私有方法
+    /// 给方法添加注释
+    private func methodA() {
+        
+    }
+    
+    // MARK: 公有方法
+    /// 给方法添加注释
+    func methodB() {
+        
+    }
 }
 
 // MARK: 协议扩展
@@ -99,31 +117,3 @@ extension ___VARIABLE_sceneName___ViewController: UICollectionViewDelegate, UICo
     }
     
 }
-
-// MARK: 事件响应
-fileprivate extension ___VARIABLE_sceneName___ViewController {
-    // 添加响应事件
-    /// XXX 点击事件
-    @objc private func click(sender: UIButton) {
-        
-    }
-}
-
-// MARK: 私有方法
-fileprivate extension ___VARIABLE_sceneName___ViewController {
-    // 添加方法
-    /// 给方法添加注释
-    private func methodA() {
-        
-    }
-}
-
-// MARK: 公有方法
-extension ___VARIABLE_sceneName___ViewController {
-    // 添加方法
-    /// 给方法添加注释
-    func methodB() {
-        
-    }
-}
-

@@ -19,7 +19,7 @@ class CategoryViewController: UIViewController {
     }
     
     func requestCategory() {
-        NetWorking.request(urlRequest: RosegalRouter().pathRouter(type: .category).pathType(type: .command))?.cache(true).responseCacheThenString(completion: { (responseModel) in
+        NetWorking.request(urlRequest: RosegalRouter().pathRouter(.category).pathType(.command))?.cache(true).responseCacheThenString(completion: { (responseModel) in
             switch responseModel.result {
             case .success(let string):
                 DebugManager.log(string)

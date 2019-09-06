@@ -71,14 +71,14 @@ class RosegalRouter: RequestRouter {
     // MARK: -公有方法
     /// 请求的数据路劲类型
     @discardableResult
-    func pathRouter(type: RequestRouterPath) -> RosegalRouter {
+    func pathRouter(_ type: RequestRouterPath) -> RosegalRouter {
         pathRouter = type
         return self
     }
     
     /// 请求的数据路劲类型
     @discardableResult
-    func pathType(type: RouterPathType) -> RosegalRouter {
+    func pathType(_ type: RouterPathType) -> RosegalRouter {
         pathType = type
         return self
     }

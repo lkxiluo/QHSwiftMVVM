@@ -5,6 +5,7 @@
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright (c) ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
+// 每个 MARK 没有内容时，删除掉样例，保留 MARK 注解
 
 import Foundation
 import UIKit
@@ -12,20 +13,6 @@ import SnapKit
 
 /// 实现XXXX功能，写功能注释
 class ___VARIABLE_sceneName___ViewController: UIViewController {
-    // MARK: 方法重写
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    // MARK: 添加视图和布局
-    /// 添加视图
-    private func setupView() {
-    }
-    
-    /// 添加布局
-    private func layout() {
-    }
-    
     // MARK: 属性列表
     // MARK: --存储属性列表
     /// 属性注释
@@ -63,37 +50,42 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
         button.addTarget(self, action: #selector(click), for: .touchUpInside)
         return button
     }()
+    
+    // MARK: 方法重写
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // MARK: 添加视图和布局
+    /// 添加视图
+    private func setupView() {
+    }
+    
+    /// 添加布局
+    private func layout() {
+    }
+    
+    // MARK: 事件响应
+    /// XXX 点击事件
+    @objc private func click(sender: UIButton) {
+        
+    }
+    
+    // MARK: 私有方法
+    /// 给方法添加注释
+    private func methodA() {
+        
+    }
+    
+    // MARK: 公有方法
+    /// 给方法添加注释
+    func methodB() {
+        
+    }
 }
 
 // MARK: 协议扩展
 extension ___VARIABLE_sceneName___ViewController: UINavigationControllerDelegate {
     
-}
-
-// MARK: 事件响应
-fileprivate extension ___VARIABLE_sceneName___ViewController {
-    // 添加响应事件
-    /// XXX 点击事件
-    @objc private func click(sender: UIButton) {
-        
-    }
-}
-
-// MARK: 私有方法
-fileprivate extension ___VARIABLE_sceneName___ViewController {
-    // 添加方法
-    /// 给方法添加注释
-    private func methodA() {
-        
-    }
-}
-
-// MARK: 公有方法
-extension ___VARIABLE_sceneName___ViewController {
-    // 添加方法
-    /// 给方法添加注释
-    func methodB() {
-        
-    }
 }
 
