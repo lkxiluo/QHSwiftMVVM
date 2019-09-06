@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  RGSwiftProject
+
+  Created by lkun on 2019/9/5.
+  Copyright © 2019 karl.luo. All rights reserved.
+*/
+
+"home_title" = "Home";
+
+"tabbar_title_home"     = "Home";
+"tabbar_title_category" = "Categores";
+"tabbar_title_z-me"     = "Show";
+"tabbar_title_favorite" = "Bag";
+"tabbar_title_mine"     = "Account";

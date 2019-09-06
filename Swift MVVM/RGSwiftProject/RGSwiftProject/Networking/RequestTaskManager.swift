@@ -11,96 +11,93 @@ import Alamofire
 
 // MARK: - 请求任务
 public class RequestTaskManager {
+    // 当前的任务请求
     var dataRequest: DataRequest?
-    var cache: Bool = false
+    // 当前请求是否需要缓存
+    var isCache: Bool = false
+    // 当前缓存的键
     var cacheKey: String!
-    var sessionManager: SessionManager?
-    var completionClosure: (()->())?
+    // 当网络变更后，当前请求是否需要重新加载
+    var isNeedReload: Bool = false
+    // 请求结束后回调
+    var completionHandle: (()->())?
     
     @discardableResult
-    func timeoutIntervalForRequest(_ timeInterval :TimeInterval) -> RequestTaskManager {
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = timeInterval
-        let sessionManager = Alamofire.SessionManager(configuration: configuration)
-        self.sessionManager = sessionManager
-        return self
-    }
-    
-    @discardableResult
-    func request(_ url: String, method: HTTPMethod = .get, params: Parameters? = nil, cacheKey: String, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil) -> RequestTaskManager {
-        self.cacheKey = cacheKey
-        if sessionManager != nil {
-            dataRequest = sessionManager?.request(url, method: method, parameters: params, encoding: encoding, headers: headers)
-        } else {
-            dataRequest = Alamofire.request(url, method: method, parameters: params, encoding: encoding, headers: headers)
-        }
-        return self
-    }
-    
-    @discardableResult
-    func request(urlRequest: URLRequestConvertible, cacheKey: String) -> RequestTaskManager {
-        self.cacheKey = cacheKey
-        if sessionManager != nil {
-            dataRequest = sessionManager?.request(urlRequest)
-        } else {
-            dataRequest = Alamofire.request(urlRequest)
-        }
+    func request(urlRequest: RequestRouter) -> RequestTaskManager {
+        self.cacheKey = urlRequest.cacheKey()
+        dataRequest = Alamofire.request(urlRequest)
         return self
     }
     
     /// 是否缓存数据
     public func cache(_ cache: Bool) -> RequestTaskManager {
-        self.cache = cache
+        self.isCache = cache
         return self
     }
     
-    /*
-     /// 获取缓存Data
-     @discardableResult
-     public func cacheData(completion: @escaping (Data)->()) -> HDataResponse {
-     let dataResponse = HDataResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     return dataResponse.cacheData(completion: completion)
+    /// 是否缓存数据
+    public func needReload(_ needReload: Bool) -> RequestTaskManager {
+        self.isNeedReload = needReload
+        return self
+    }
+    
+    // MARK: 请求响应 Data 数据
+    /// 获取缓存 Data
+    @discardableResult
+    public func cacheData(completion: @escaping (Data) -> ()) -> HDataResponse {
+        let dataResponse = HDataResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        return dataResponse.responseDataCache(completion: completion)
      }
-     /// 响应Data
-     public func responseData(completion: @escaping (DaisyValue<Data>)->()) {
-     let dataResponse = DaisyDataResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     dataResponse.responseData(completion: completion)
-     }
-     /// 先获取Data缓存，再响应Data
-     public func responseCacheAndData(completion: @escaping (DaisyValue<Data>)->()) {
-     let dataResponse = DaisyDataResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     dataResponse.responseCacheAndData(completion: completion)
-     }
-     /// 获取缓存String
-     @discardableResult
-     public func cacheString(completion: @escaping (String)->()) -> DaisyStringResponse {
-     let stringResponse = DaisyStringResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     return stringResponse.cacheString(completion:completion)
-     }
-     /// 响应String
-     public func responseString(completion: @escaping (DaisyValue<String>)->()) {
-     let stringResponse = DaisyStringResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     stringResponse.responseString(completion: completion)
-     }
-     /// 先获取缓存String,再响应String
-     public func responseCacheAndString(completion: @escaping (DaisyValue<String>)->()) {
-     let stringResponse = DaisyStringResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     stringResponse.responseCacheAndString(completion: completion)
-     }
-     /// 获取缓存JSON
-     @discardableResult
-     public func cacheJson(completion: @escaping (Any)->()) -> DaisyJsonResponse {
-     let jsonResponse = DaisyJsonResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     return jsonResponse.cacheJson(completion:completion)
-     }
-     /// 响应JSON
-     public func responseJson(completion: @escaping (DaisyValue<Any>)->()) {
-     let jsonResponse = DaisyJsonResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     jsonResponse.responseJson(completion: completion)
-     }
-     /// 先获取缓存JSON，再响应JSON
-     public func responseCacheAndJson(completion: @escaping (DaisyValue<Any>)->()) {
-     let jsonResponse = DaisyJsonResponse(dataRequest: dataRequest!, cache: cache, cacheKey: cacheKey, completionClosure: completionClosure)
-     jsonResponse.responseCacheAndJson(completion: completion)
-     }*/
+    
+    /// 响应 Data
+    public func responseData(completion: @escaping (ResponseModel<Data>) -> ()) {
+        let dataResponse = HDataResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        dataResponse.responseData(completion: completion)
+    }
+    
+    /// 先获取 Data 缓存，再响应 Data
+    public func responseCacheThenData(completion: @escaping (ResponseModel<Data>) -> ()) {
+        let dataResponse = HDataResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        dataResponse.responseCacheThenData(completion: completion)
+    }
+    
+    // MARK: 请求响应 String 数据
+    /// 获取缓存 String
+    @discardableResult
+    public func cacheString(completion: @escaping (String)->()) -> StringResponse {
+        let stringResponse = StringResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        return stringResponse.responseStringCache(completion: completion)
+    }
+    
+    /// 响应 String
+    public func responseString(completion: @escaping (ResponseModel<String>) -> ()) {
+        let stringResponse = StringResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        stringResponse.responseString(completion: completion)
+    }
+    
+    /// 先获取缓存 String, 再响应String
+    public func responseCacheThenString(completion: @escaping (ResponseModel<String>)->()) {
+        let stringResponse = StringResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        stringResponse.responseCacheThenString(completion: completion)
+    }
+    
+    // MARK: 请求响应 JSON 数据
+    /// 获取缓存 JSON
+    @discardableResult
+    public func cacheJson(completion: @escaping (Any)->()) -> JsonResponse {
+        let jsonResponse = JsonResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        return jsonResponse.responseJsonCache(completion: completion)
+    }
+    
+    /// 响应 JSON
+    public func responseJson(completion: @escaping (ResponseModel<Any>)->()) {
+        let jsonResponse = JsonResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        jsonResponse.responseJson(completion: completion)
+    }
+    
+    /// 先获取缓存JSON，再响应JSON
+    public func responseCacheThenJson(completion: @escaping (ResponseModel<Any>)->()) {
+        let jsonResponse = JsonResponse(dataRequest: dataRequest!, cache: isCache, cacheKey: cacheKey, needReload: isNeedReload, completeHandle: completionHandle)
+        jsonResponse.responseCacheThenJson(completion: completion)
+    }
 }

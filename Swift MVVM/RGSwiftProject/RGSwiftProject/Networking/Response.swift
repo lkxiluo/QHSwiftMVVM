@@ -40,7 +40,7 @@ public class Response {
     func responseCache<T>(responseData: DataResponse<T>, completion:@escaping (ResponseModel<T>) -> Void) {
         let result = ResponseModel(isCache: isCache, result: responseData.result, response: responseData.response)
         DebugManager.log("=========== 😆😆 这是请求的相关数据 ========")
-        DebugManager.log(responseData.request?.url?.absoluteString ?? "这个链接是空的")
+        DebugManager.log("请求URL😆😆:" + (responseData.request?.url?.absoluteString ?? "这个链接是空的"))
         switch responseData.result {
         case .success(_):
             // 输出请求结果数据
@@ -85,7 +85,7 @@ public class JsonResponse: Response {
         if let data = CacheManager.default.cacheObject(for: cacheKey)?.data,
             let json = try? JSONSerialization.jsonObject(with: data, options: []) {
             DebugManager.log("================ 😆😆 这是缓存数据 =================")
-            DebugManager.log(dataRequest.request?.url?.absoluteString ?? "这个链接是空")
+            DebugManager.log("请求URL😆😆:" + (dataRequest.request?.url?.absoluteString ?? "这个链接是空"))
             if let jsonStr = String(bytes: data, encoding: .utf8) {
                 DebugManager.log(jsonStr)
             }
@@ -113,7 +113,7 @@ public class JsonResponse: Response {
 // MARK: 响应返回 String 结构数据
 public class StringResponse: Response {
     /// 响应 String 格式的数据
-    func responseJson(completion: @escaping (ResponseModel<String>) -> Void) {
+    func responseString(completion: @escaping (ResponseModel<String>) -> Void) {
         dataRequest.responseString { (string) in
             self.response(responseData: string, completion: completion)
         }
@@ -125,7 +125,7 @@ public class StringResponse: Response {
         if let data = CacheManager.default.cacheObject(for: cacheKey)?.data,
             let string = String(bytes: data, encoding: .utf8) {
             DebugManager.log("================ 😆😆 这是缓存数据 =================")
-            DebugManager.log(dataRequest.request?.url?.absoluteString ?? "这个链接是空")
+            DebugManager.log("请求URL😆😆:" + (dataRequest.request?.url?.absoluteString ?? "这个链接是空"))
             DebugManager.log(string)
             completion(string)
         } else {
@@ -151,7 +151,7 @@ public class StringResponse: Response {
 // MARK: 响应返回 Data 结构数据
 public class HDataResponse: Response {
     // 响应 Data 格式的数据
-    func responseJson(completion: @escaping (ResponseModel<Data>) -> Void) {
+    func responseData(completion: @escaping (ResponseModel<Data>) -> Void) {
         dataRequest.responseData { (data) in
             self.response(responseData: data, completion: completion)
         }
@@ -163,7 +163,7 @@ public class HDataResponse: Response {
         if let data = CacheManager.default.cacheObject(for: cacheKey)?.data,
             let string = String(bytes: data, encoding: .utf8) {
             DebugManager.log("================ 😆😆 这是缓存数据 =================")
-            DebugManager.log(dataRequest.request?.url?.absoluteString ?? "这个链接是空")
+            DebugManager.log("请求URL😆😆:" + (dataRequest.request?.url?.absoluteString ?? "这个链接是空"))
             DebugManager.log(string)
             completion(data)
         } else {

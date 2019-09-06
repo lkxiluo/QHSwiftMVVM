@@ -15,7 +15,7 @@ public struct ResponseModel<Value> {
     public let isCacheResponse: Bool
     // 请求响应的结果
     public let result: Alamofire.Result<Value>
-    // 响应结果
+    // HTTP 请求响应结果的相关数据对象
     public let response: HTTPURLResponse?
     init(isCache: Bool, result: Alamofire.Result<Value>, response: HTTPURLResponse?) {
         self.isCacheResponse = isCache

@@ -12,11 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var mainTabBarController: MainTabBarController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        rootViewControllerWithTabbarController()
         return true
+    }
+    
+    /// 设置根 VC
+    func rootViewControllerWithTabbarController() -> Void {
+        mainTabBarController = MainTabBarController()
+        window?.rootViewController = mainTabBarController
+        mainTabBarController?.selectedIndex = 0
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

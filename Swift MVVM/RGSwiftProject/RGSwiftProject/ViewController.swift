@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DebugManager.log("我只是个测试")
+        RosegalRouter().pathType(type: .default).requestParams(params: [:])
     }
 }
 
